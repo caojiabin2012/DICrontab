@@ -19,11 +19,11 @@ $crontab->When('* */20 * * *')
         }, $userParams
         );
 //The callback function will be called every 20 minitues.
-
-//If you just want to test when will the ticker tick next time
-//Use the Next() function instead, Next() will return the Iterator of the time table.
-//Also you can use From(startTime) to asume the cron start at what time you need instead of time().
-
+```
+If you just want to test when will the ticker tick next time
+Use the Next() function instead, Next() will return the Iterator of the time table.
+Also you can use From(startTime) to asume the cron start at what time you need instead of time().
+```
 $iterator = $crontab->When('* */20 * * *')
 		//->From( mktime(14, 00, 00, 3, 3, 2016) )//Optional
 		->Next();
@@ -36,24 +36,22 @@ foreach($nextTickTime in $iterator)
 	else
 		break;
 }
-
-/*
-Simple of crontab-string
-$crontabString :
-	 *                       0     1    2    3    4    5
-	 *                       *     *    *    *    *    *
-	 *                       -     -    -    -    -    -
-	 *                       |     |    |    |    |    |
-	 *                       |     |    |    |    |    +----- day of week (0 - 6) (Sunday=0)
-	 *                       |     |    |    |    +----- month (1 - 12)
-	 *                       |     |    |    +------- day of month (1 - 31)
-	 *                       |     |    +--------- hour (0 - 23)
-	 *                       |     +----------- min (0 - 59)
-	 *                       +------------- sec (0-59) (Optional)
-You can use 5 params like what crontab use in Linux, and use the 6th param as to descript the SECONDS.
-*/
 ```
-
+```
+//Simple of crontab-string
+//$crontabString :
+//	 *                       0     1    2    3    4    5
+//	 *                       *     *    *    *    *    *
+//	 *                       -     -    -    -    -    -
+//	 *                       |     |    |    |    |    |
+//	 *                       |     |    |    |    |    +----- day of week (0 - 6) (Sunday=0)
+//	 *                       |     |    |    |    +----- month (1 - 12)
+//	 *                       |     |    |    +------- day of month (1 - 31)
+//	 *                       |     |    +--------- hour (0 - 23)
+//	 *                       |     +----------- min (0 - 59)
+//	 *                       +------------- sec (0-59) (Optional)
+//You can use 5 params like what crontab use in Linux, and use the 6th param as to descript the SECONDS.
+```
 
 # Dependence
 + My develop enverment is CentOS 7.
