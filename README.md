@@ -13,7 +13,7 @@ $crontab->When('* */20 * * *')
 	->Then(function ($userParams)
 	{
 		echo 'crontab called';
-		return false;//return false int callback function if you want to cancle this cron.
+		return false;//return false if you want to cancle this cron.
         },
         $userParams);
 //The callback function will be called every 20 minitues.
