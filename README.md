@@ -11,7 +11,7 @@ DICrontab is not the same as [swoole-crontab](https://github.com/osgochina/swool
 include './CrontabTicker.php';
 
 $crontab = new \DIServer\Ticker\CrontabTicker();
-$crontab->When('* */20 * * *')
+$crontab->When('0 */20 * * *')
 	->Then(function ($userParams)
 	{
 		echo 'crontab called';
