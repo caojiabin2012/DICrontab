@@ -61,6 +61,11 @@ You can use 5 params like what crontab use in Linux, and use the 6th param as to
 + I used swoole_timer_after, so must at least swoole-1.7.7.
 + It also used keyword 'yield' in php, so 5.5+ is required.
 
+# Notes
+As this class is base on swoole_timer_after, please notes below while using in swoole_server or asyns-swoole-client:
+1. If the Process was reloaded, the cron tick will be deleted, so if you want add an resident crontab, please record your cron-string and init the ticker on process start, some swoole callback like 'OnWorkerStart', cause the cron-string descripted the timetable, don't worry about lose the ticker, just set a new one.
+2. If you want to do something like send 1 message to every user, please notice that every Process can has its own tiker, if you add the tick in OnWorkerStart, asume you have 2 Worker Process and 4 TaskWorker Process and you set the ticker on every worker start, you will have 6 ticker and callback at same time, every client will receive 6 message. So, just use something like "if($server->worker_id==0)" to add only one ticker.
+
 # Description
 While working my on swoole-framework [DIServer-framwork](https://github.com/szyhf/DIServer), I find is not easy to implement some timer job like send a message to every clients on every Monday to Friday, swoole_tick provides a high accuracy tick service, but only can tick every same micro-seconds or tick atfer some micro-seconds from now.
 
