@@ -19,6 +19,14 @@ $crontab->Set('* */20 * * *')
 //The callback function will be called every 20 minitues.
 ```
 
+# Dependence
+My develop enverment is CentOS 7.
+PHP 7.0.3
+[Swoole-extension](https://github.com/swoole/swoole-src/releases) 1.8.3 
+I think php5.5+ and swoole 1.7.7+ is Ok, but I can't test it.
+This ticker used swoole_timer_after, so must at least swoole-1.7.7.
+It also used keyword 'yield' in php, so 5.5+ is required.
+
 # Description
 While working my on swoole-framework [DIServer-framwork](https://github.com/szyhf/DIServer), I find is not easy to implement some timer job like send a message to every clients on every Monday to Friday, swoole_tick provides a high accuracy tick service, but only can tick every same micro-seconds or tick atfer some micro-seconds from now.
 
