@@ -3,6 +3,8 @@ This is a php class implement a timetable service using format string like linux
 
 Thanks to the project [swoole-crontab](https://github.com/osgochina/swoole-crontab), I learned how to analyze the crontab string.
 
+DICrontab is not the same as [swoole-crontab](https://github.com/osgochina/swoole-crontab), that's a complete application, and DICrontab is just like a tool, a simple library, a class, you can inclued it and use is in your project.
+
 # Quick start
 ```
 <?php
