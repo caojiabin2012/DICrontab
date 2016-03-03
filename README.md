@@ -6,7 +6,7 @@ Thanks to the project [swoole-crontab](https://github.com/osgochina/swoole-cront
 # Quick start
 ```
 <?php
-include './CrontabTicker.php'
+include './CrontabTicker.php';
 
 $crontab = new \DIServer\Ticker\CrontabTicker();
 $crontab->When('* */20 * * *')
