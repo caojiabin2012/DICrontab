@@ -9,14 +9,32 @@ Thanks to the project [swoole-crontab](https://github.com/osgochina/swoole-cront
 include './CrontabTicker.php'
 
 $crontab = new \CrontabTicker();
-$crontab->Set('* */20 * * *')
-	->Called(function ($userParams)
+$crontab->When('* */20 * * *')
+	->Then(function ($userParams)
 	{
 		echo 'crontab called';
 		return false;//return false int callback function if you want to cancle this cron.
         },
         $userParams);
 //The callback function will be called every 20 minitues.
+
+//If you just want to test when will the ticker tick next time
+//Use the Next() function instead, Next() will return the Iterator of the time table.
+//Also you can use From(startTime) to asume the cron start at what time you need instead of time().
+
+$iterator = $crontab->When('* */20 * * *')
+		//->From( mktime(14, 00, 00, 3, 3, 2016) )//Optional
+		->Next();
+
+$count = 0;//only print next 10 cron.
+foreach($nextTickTime in $iterator)
+{
+	if($count++ < 10)
+		echo $nextTickTime;
+	else
+		break;
+}
+
 ```
 
 # Dependence
