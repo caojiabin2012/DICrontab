@@ -72,7 +72,7 @@ At first I just want to use it as a plugins in [DIServer-framwork](https://githu
 As the high accuracy provieded from swoole-extension, not like Linux-crontab, we can set up HIGH LEVEL cron like "\*/20 0 0 \* \* fri", while using 6 params, the format will be "second minute hour day month week"; As 5 params is "minute hour day month week", and it will called on second 1 in that minute like linux-crontab.
 
 # Example
-Here is some example I used to test the Ticker, if you find any bugs, please notes me.
+Here is some example I used to test the Ticker, if you find any bugs, please [notes](https://github.com/szyhf/DICrontab/issues/new) me.
 ```
 private $cronString = [
 		'* */1 * 3 3 *'          => 'every seconds in Mar 3th.',
