@@ -8,7 +8,7 @@ Thanks to the project [swoole-crontab](https://github.com/osgochina/swoole-cront
 <?php
 include './CrontabTicker.php'
 
-$crontab = new \CrontabTicker();
+$crontab = new \DIServer\Ticker\CrontabTicker();
 $crontab->When('* */20 * * *')
 	->Then(function ($userParams)
 	{
