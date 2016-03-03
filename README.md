@@ -35,7 +35,23 @@ foreach($nextTickTime in $iterator)
 		break;
 }
 
+/*
+Simple of crontab-string
+$crontabString :
+	 *                       0     1    2    3    4    5
+	 *                       *     *    *    *    *    *
+	 *                       -     -    -    -    -    -
+	 *                       |     |    |    |    |    |
+	 *                       |     |    |    |    |    +----- day of week (0 - 6) (Sunday=0)
+	 *                       |     |    |    |    +----- month (1 - 12)
+	 *                       |     |    |    +------- day of month (1 - 31)
+	 *                       |     |    +--------- hour (0 - 23)
+	 *                       |     +----------- min (0 - 59)
+	 *                       +------------- sec (0-59) (Optional)
+You can use 5 params like what crontab use in Linux, and use the 6th param as to descript the SECONDS.
+*/
 ```
+
 
 # Dependence
 + My develop enverment is CentOS 7.
