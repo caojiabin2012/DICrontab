@@ -16,8 +16,8 @@ $crontab->When('* */20 * * *')
 	{
 		echo 'crontab called';
 		return false;//return false if you want to cancle this cron.
-        },
-        $userParams);
+        }, $userParams
+        );
 //The callback function will be called every 20 minitues.
 
 //If you just want to test when will the ticker tick next time
