@@ -63,7 +63,9 @@ You can use 5 params like what crontab use in Linux, and use the 6th param as to
 
 # Notes
 As this class is base on swoole_timer_after, please notes below while using in swoole_server or asyns-swoole-client:
+
 1. If the Process was reloaded, the cron tick will be deleted, so if you want add an resident crontab, please record your cron-string and init the ticker on process start, some swoole callback like 'OnWorkerStart', cause the cron-string descripted the timetable, don't worry about lose the ticker, just set a new one.
+
 2. If you want to do something like send 1 message to every user, please notice that every Process can has its own tiker, if you add the tick in OnWorkerStart, asume you have 2 Worker Process and 4 TaskWorker Process and you set the ticker on every worker start, you will have 6 ticker and callback at same time, every client will receive 6 message. So, just use something like "if($server->worker_id==0)" to add only one ticker.
 
 # Description
