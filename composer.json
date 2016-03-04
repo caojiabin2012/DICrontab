@@ -1,0 +1,16 @@
+{
+  "name": "DICrontab",
+  "description": "A linux-crontab command style ticker libriary in php.",
+  "keywords": [
+    "crontab",
+    "DIServer",
+	"swoole",
+	"php"
+  ],
+  "license": "Apache2",
+  "type": "libriary",
+  "require": {
+    "php": ">=5.5.9",
+    "ext-swoole": ">=1.7.20"
+  }
+}
