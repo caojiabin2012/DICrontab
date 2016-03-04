@@ -27,7 +27,7 @@ class CrontabTicker
 	const HOUR = 'G';
 	const MINUTE = 'i';
 	const SECOND = 's';
-	const SHORT_MAP = [
+	private static $_short_map = [
 		'sun'       => 0,
 		'sunday'    => 0,
 		'mon'       => 1,
@@ -103,7 +103,7 @@ class CrontabTicker
 		if(preg_match('/[A-Za-z]*/', $crontabString))
 		{
 			$crontabString = strtolower($crontabString);//处理成小写
-			foreach(self::SHORT_MAP as $str => $vol)
+			foreach(self::$_short_map as $str => $vol)
 			{
 				$crontabString = str_replace($str, $vol, $crontabString);
 			}
