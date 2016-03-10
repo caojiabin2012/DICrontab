@@ -679,7 +679,7 @@ class CrontabTicker
 	 */
 	private function _isLimited($span)
 	{
-		return isset($this->_limits[$span]);
+		return isset($this->_limits[$span]) && $this->_limits[$span];
 	}
 
 	/**
